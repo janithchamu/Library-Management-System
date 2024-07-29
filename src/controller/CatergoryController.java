@@ -95,7 +95,7 @@ public class CatergoryController {
 
     @FXML
     void btnReloadOnAction(ActionEvent event) throws ClassNotFoundException, SQLException {
-           getAllRecords();
+          getAllRecords();
     }
 
     public void getAllRecords() throws ClassNotFoundException, SQLException{
@@ -129,7 +129,7 @@ public class CatergoryController {
                     e.printStackTrace();
                 }
 
-            });
+              });
         }
 
         tblCatergories.setItems(catergoryList);
