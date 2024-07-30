@@ -3,6 +3,8 @@ package controller;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import dto.BookDto;
+import dto.BookDtoRes;
 import entity.Book;
 import entity.Catergory;
 import javafx.collections.FXCollections;
@@ -39,6 +41,9 @@ public class BooksController {
     private TableColumn<BookTm, String> colDescription;
 
     @FXML
+    private TableColumn<BookTm, String> colCatergory;
+
+    @FXML
     private AnchorPane root;
 
     @FXML
@@ -56,6 +61,10 @@ public class BooksController {
     @FXML
     private TextArea txtDescription;
 
+    @FXML
+    private TextField txtCatergory;
+
+
     private BookService bookService;
 
     public BooksController(){
@@ -67,19 +76,21 @@ public class BooksController {
         colBookName.setCellValueFactory(new PropertyValueFactory<>("BookName"));
         colDescription.setCellValueFactory(new PropertyValueFactory<>("Description"));
         colAuthor.setCellValueFactory(new PropertyValueFactory<>("Author"));
+        colCatergory.setCellValueFactory(new PropertyValueFactory<>("Catergory"));
         colDelete.setCellValueFactory(new PropertyValueFactory<>("btnDelete"));
         getAllRecords();
     }
 
     @FXML
     void btnAddOnAction(ActionEvent event) throws ClassNotFoundException, SQLException {
-         Book book = new Book(
+         BookDto bookDto = new BookDto(
             txtBookId.getText(),
             txtBookName.getText(),
             txtDescription.getText(),
-            txtAuthor.getText()
+            txtAuthor.getText(),
+            txtCatergory.getText()
          );
-        boolean isAdd =  bookService.addBook(book);
+        boolean isAdd =  bookService.addBook(bookDto);
         if(isAdd){
            new Alert(Alert.AlertType.CONFIRMATION,"Added Succesfully !").show();
            clearTexts();
@@ -90,13 +101,14 @@ public class BooksController {
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) throws ClassNotFoundException, SQLException {
-        Book book = new Book(
+        BookDto bookDto = new BookDto(
             txtBookId.getText(),
             txtBookName.getText(),
             txtDescription.getText(),
-            txtAuthor.getText()
+            txtAuthor.getText(),
+            txtCatergory.getText()
          );
-        boolean isUpdate = bookService.updateBook(book);
+        boolean isUpdate = bookService.updateBook(bookDto);
         if(isUpdate){
             new Alert(Alert.AlertType.CONFIRMATION,"Updae Succesfully !").show();
             clearTexts();
@@ -113,16 +125,17 @@ public class BooksController {
     }
 
     public void getAllRecords() throws ClassNotFoundException, SQLException{
-         ArrayList<Book> List = bookService.loadTable();
+        ArrayList<BookDtoRes> List = bookService.loadTable();
         ObservableList<BookTm> bookList = FXCollections.observableArrayList();
 
-        for(Book book : List){
+        for(BookDtoRes book : List){
              Button deleteButton = new Button("Delete");
              BookTm bookTm = new BookTm(
                 book.getBookId(),
                 book.getBookName(),
                 book.getBookDescription(),
                 book.getAuthor(),
+                book.getCatergory(),
                 deleteButton
              );
              bookList.add(bookTm);
@@ -159,6 +172,7 @@ public class BooksController {
          txtBookName.setText(newValue.getBookName());
          txtDescription.setText(newValue.getDescription());
          txtAuthor.setText(newValue.getAuthor());
+         txtCatergory.setText(null);
     }
 
     public void clearTexts(){
@@ -166,6 +180,7 @@ public class BooksController {
         txtBookId.setText("");
         txtBookName.setText("");
         txtDescription.setText("");
+        txtCatergory.setText("");
         
     }
 }

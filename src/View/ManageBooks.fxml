@@ -9,10 +9,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BooksController">
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="454.0" prefWidth="805.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BooksController">
    <children>
-      <Label layoutX="228.0" layoutY="26.0" prefHeight="48.0" prefWidth="239.0" text="LIBRARY BOOKS" textAlignment="CENTER" textFill="#27e3e1" textOverrun="WORD_ELLIPSIS">
+      <Label layoutX="283.0" layoutY="36.0" prefHeight="48.0" prefWidth="239.0" text="LIBRARY BOOKS" textAlignment="CENTER" textFill="#27e3e1" textOverrun="WORD_ELLIPSIS">
          <font>
             <Font size="31.0" />
          </font>
@@ -20,30 +19,42 @@
       <TextField fx:id="txtBookId" layoutX="24.0" layoutY="104.0" prefHeight="25.0" prefWidth="164.0" promptText="Book ID" />
       <TextField fx:id="txtBookName" layoutX="24.0" layoutY="156.0" prefHeight="25.0" prefWidth="164.0" promptText="Book Name" />
       <TextField fx:id="txtAuthor" layoutX="24.0" layoutY="200.0" prefHeight="25.0" prefWidth="164.0" promptText="Author" />
-      <TextArea fx:id="txtDescription" layoutX="24.0" layoutY="238.0" prefHeight="48.0" prefWidth="164.0" promptText="Description" />
+      <TextArea fx:id="txtDescription" layoutX="24.0" layoutY="244.0" prefHeight="48.0" prefWidth="164.0" promptText="Description" />
       <Label layoutX="24.0" layoutY="90.0" text="Book ID">
          <font>
             <Font size="9.0" />
          </font>
       </Label>
-      <JFXButton layoutX="112.0" layoutY="297.0" onAction="#btnAddOnAction" prefHeight="25.0" prefWidth="76.0" style="-fx-background-color: #37d3c9;" text="Add" textFill="#1d1e1e" />
-      <JFXButton layoutX="26.0" layoutY="297.0" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="76.0" style="-fx-background-color: #37d3c9;" text="Update" textFill="#1d1e1e" />
-      <TableView fx:id="tblBook" layoutX="212.0" layoutY="103.0" prefHeight="247.0" prefWidth="457.0">
+      <JFXButton layoutX="111.0" layoutY="350.0" onAction="#btnAddOnAction" prefHeight="25.0" prefWidth="76.0" style="-fx-background-color: #37d3c9;" text="Add" textFill="#1d1e1e" />
+      <JFXButton layoutX="25.0" layoutY="350.0" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="76.0" style="-fx-background-color: #37d3c9;" text="Update" textFill="#1d1e1e" />
+      <TableView fx:id="tblBook" layoutX="222.0" layoutY="102.0" prefHeight="247.0" prefWidth="566.0">
         <columns>
           <TableColumn fx:id="colBookID" prefWidth="57.0" text="Book ID" />
           <TableColumn fx:id="colBookName" prefWidth="87.0" text="Book Name" />
             <TableColumn fx:id="colAuthor" prefWidth="95.0" text="Author" />
-            <TableColumn fx:id="colDescription" prefWidth="120.0" text="Description" />
-            <TableColumn fx:id="colDelete" prefWidth="104.0" text="Delete" />
+            <TableColumn fx:id="colDescription" prefWidth="176.0" text="Description" />
+            <TableColumn fx:id="colCatergory" text="Catergory" />
+            <TableColumn fx:id="colDelete" prefWidth="72.0" text="Delete" />
         </columns>
       </TableView>
-      <JFXButton layoutX="576.0" layoutY="361.0" onAction="#btnLoadTableOnAction" prefHeight="25.0" prefWidth="93.0" style="-fx-background-color: #37d3c9;" text="Load Table" />
+      <JFXButton layoutX="695.0" layoutY="362.0" onAction="#btnLoadTableOnAction" prefHeight="25.0" prefWidth="93.0" style="-fx-background-color: #37d3c9;" text="Load Table" />
       <Label layoutX="24.0" layoutY="143.0" text="Book Name">
          <font>
             <Font size="9.0" />
          </font>
       </Label>
       <Label layoutX="26.0" layoutY="187.0" text="Author">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtCatergory" layoutX="24.0" layoutY="312.0" prefHeight="25.0" prefWidth="164.0" promptText="Catergory ID" />
+      <Label layoutX="25.0" layoutY="227.0" text="Description">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Label>
+      <Label layoutX="23.0" layoutY="299.0" text="Catergory ID">
          <font>
             <Font size="9.0" />
          </font>
