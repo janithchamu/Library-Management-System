@@ -49,7 +49,14 @@ public class UserSignin {
     }
 
     @FXML
-    void btnManageMembersOnAction(ActionEvent event) {
-        System.out.println("click on manage members");
+    void btnManageMembersOnAction(ActionEvent event) throws IOException {
+        URL source2 = getClass().getResource("/View/ManageMembers.fxml");
+        Parent root = FXMLLoader.load(source2);
+        //Parent root = FXMLLoader.load(this.getClass().getResource("/View/signUp.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+ 
+        stage.setTitle("Members");
+        stage.show();
     }
 }
