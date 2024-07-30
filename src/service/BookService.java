@@ -3,6 +3,8 @@ package service;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import dto.BookDto;
+import dto.BookDtoRes;
 import entity.Book;
 import repository.BookRepository;
 
@@ -15,11 +17,11 @@ public class BookService {
       bookRepository = new BookRepository();
     }
 
-    public boolean addBook(Book book) throws ClassNotFoundException, SQLException {
-       return bookRepository.addBook(book);
+    public boolean addBook(BookDto bookDto) throws ClassNotFoundException, SQLException {
+       return bookRepository.addBook(bookDto);
     }
 
-	public ArrayList<Book> loadTable() throws ClassNotFoundException, SQLException {
+	public ArrayList<BookDtoRes> loadTable() throws ClassNotFoundException, SQLException {
 		return bookRepository.loadTable();
 	}
 
@@ -27,8 +29,8 @@ public class BookService {
        return bookRepository.deleteBookById(bookId);
     }
 
-    public boolean updateBook(Book book) throws ClassNotFoundException, SQLException {
-      return bookRepository.updateBook(book);
+    public boolean updateBook(BookDto bookDto) throws ClassNotFoundException, SQLException {
+      return bookRepository.updateBook(bookDto);
     }
     
 }
