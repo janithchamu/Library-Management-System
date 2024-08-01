@@ -14,7 +14,7 @@ public class CatergoryService {
        catergoryRepository = new CatergoryRepository();
     }
 
-    public int addBookCatergory(Catergory catergory) throws ClassNotFoundException, SQLException {
+    public boolean addBookCatergory(Catergory catergory) throws ClassNotFoundException, SQLException {
        return (catergoryRepository.addBookCatergory(catergory));
     }
 

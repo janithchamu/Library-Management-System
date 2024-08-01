@@ -1,11 +1,13 @@
-package controller;
+package controller.bookController;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.mysql.cj.protocol.Resultset;
+import java.lang.reflect.Field;
 
 import db.DbConnection;
 import entity.Catergory;
@@ -68,28 +70,44 @@ public class CatergoryController {
         getAllRecords();
     }
 
+    public boolean checkNullTextFields(List<TextField> list){
+
+        for(TextField textField : list){
+            if(textField.getText() == null || textField.getText().trim().isEmpty()){
+                return false;
+            }
+        }
+        return true;
+    }
+
     @FXML
     void btnAddOnAction(ActionEvent event) throws ClassNotFoundException, SQLException {
-        Catergory catergory = new Catergory(
-            txtId.getText(),
-            txtName.getText(),
-            txtDescription.getText()
-        );
+        List<TextField> list = new ArrayList<>();
+        list.add(txtId);
+        list.add(txtName);
 
-        int res = catergoryService.addBookCatergory(catergory);
+        if(checkNullTextFields(list) && txtDescription.getText() != null && !txtDescription.getText().trim().isEmpty()){
+            Catergory catergory = new Catergory(
+                txtId.getText(),
+                txtName.getText(),
+                txtDescription.getText()
+            );
+            
+            boolean res = catergoryService.addBookCatergory(catergory);
      
-        if(res>0){
-            new Alert(Alert.AlertType.CONFIRMATION,"Catergory added Successfuly!").show();
-        }else{
-            new Alert(Alert.AlertType.ERROR,"FAILE TO ADD CATERGORY !").show();
+            if(res){
+                new Alert(Alert.AlertType.CONFIRMATION,"Catergory added Successfuly!").show();
+                txtName.setText("");
+                txtDescription.setText("");
+                txtId.setText("");                
+            }else{
+                new Alert(Alert.AlertType.ERROR,"FAILE TO ADD CATERGORY !").show();
+            }
+            getAllRecords();
         }
-        getAllRecords();
-
-        txtId.setText("");
-        txtName.setText("");
-        txtDescription.setText("");
-       
-
+        else{
+            new Alert(Alert.AlertType.ERROR,"Please Complete the all feilds!").show();
+        }
 
     }
 

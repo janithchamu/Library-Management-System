@@ -1,8 +1,8 @@
-package controller;
+package controller.memberController;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-
+import java.util.List;
 
 import entity.Member;
 import javafx.collections.FXCollections;
@@ -76,24 +76,46 @@ public class MembersController {
        colDelete.setCellValueFactory(new PropertyValueFactory<>("btnDelete"));
        getAllRecords();
     }
+    public boolean checkNullTextFields(List<TextField> list){
+
+        for(TextField textField : list){
+            if(textField.getText() == null || textField.getText().trim().isEmpty()){
+                return false;
+            }
+        }
+        return true;
+    }
 
     @FXML
     void btnAddOnAction(ActionEvent event) throws ClassNotFoundException, SQLException {
+        List<TextField> list = new ArrayList<>();
+        list.add(txtMemberAddress);
+        list.add(txtMemberContact);
+        list.add(txtMemberID);
+        list.add(txtMemberNIC);
+        list.add(txtMemberName);
+        if(checkNullTextFields(list)){
+            Member member = new Member(
+                txtMemberID.getText(),
+                txtMemberName.getText(),
+                txtMemberAddress.getText(),
+                txtMemberContact.getText(),
+                txtMemberNIC.getText()
+            );
+            boolean res = memberService.addMember(member);
+            if(res){
+                new Alert(Alert.AlertType.CONFIRMATION,"Added Succesfully !").show();
+                 clearTexts();
+             }else{
+                 new Alert(Alert.AlertType.ERROR,"Fail to Add !").show();
+             }
+        }
+        else{
+            new Alert(Alert.AlertType.ERROR,"Please Complete All Fields").show();
+        }
+    
 
-        Member member = new Member(
-            txtMemberID.getText(),
-            txtMemberName.getText(),
-            txtMemberAddress.getText(),
-            txtMemberContact.getText(),
-            txtMemberNIC.getText()
-        );
-        boolean res = memberService.addMember(member);
-        if(res){
-            new Alert(Alert.AlertType.CONFIRMATION,"Added Succesfully !").show();
-             clearTexts();
-         }else{
-             new Alert(Alert.AlertType.ERROR,"Fail to Add !").show();
-         }
+
     }
 
     private void clearTexts() {

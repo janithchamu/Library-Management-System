@@ -9,6 +9,11 @@ public class Member {
 
     
 
+    @Override
+    public String toString() {
+        return ("Member ID = " + memberId + "\nMember Name = " + memberName + "\nMember Address = " + memberAddress
+                + "\nMember Contact = " + memberContact + "\nMember NIC = " + memberNIC) ;
+    }
     public Member(String memberId, String memberName, String memberAddress, String memberContact, String memberNIC) {
         this.memberId = memberId;
         this.memberName = memberName;

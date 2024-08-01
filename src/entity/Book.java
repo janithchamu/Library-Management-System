@@ -8,6 +8,13 @@ public class Book {
     private String  bookDescription;
     private String author;
     
+    
+    
+    @Override
+    public String toString() {
+        return "Book ID = " + bookId + "\nBook Name = " + bookName + "\nBook Description = " + bookDescription
+                + "\nAuthor = " + author;
+    }
     public Book() {
     }
     public Book(String bookId, String bookName, String bookDescription, String author) {

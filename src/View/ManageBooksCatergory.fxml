@@ -9,33 +9,42 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="692.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CatergoryController">
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="692.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.bookController.CatergoryController">
    <children>
-      <Label layoutX="32.0" layoutY="93.0" text="Catergory ID">
+      <Label layoutX="36.0" layoutY="45.0" text="Catergory ID">
          <font>
             <Font size="9.0" />
          </font>
       </Label>
-      <Label layoutX="32.0" layoutY="171.0" />
-      <TextField fx:id="txtId" layoutX="32.0" layoutY="111.0" prefHeight="25.0" prefWidth="165.0" promptText="Catergory ID" />
-      <TextField fx:id="txtName" layoutX="32.0" layoutY="147.0" prefHeight="25.0" prefWidth="165.0" promptText="Catergory Name" />
-      <TextArea fx:id="txtDescription" layoutX="32.0" layoutY="183.0" prefHeight="67.0" prefWidth="186.0" promptText="Description" />
-      <Label layoutX="202.0" layoutY="14.0" prefHeight="48.0" prefWidth="288.0" text="BOOK CATERGORIES" textAlignment="CENTER" textFill="#44ceda" textOverrun="WORD_ELLIPSIS">
+      <Label layoutX="36.0" layoutY="123.0" />
+      <TextField fx:id="txtId" layoutX="36.0" layoutY="63.0" prefHeight="25.0" prefWidth="176.0" promptText="Catergory ID" />
+      <TextField fx:id="txtName" layoutX="36.0" layoutY="106.0" prefHeight="25.0" prefWidth="176.0" promptText="Catergory Name" />
+      <TextArea fx:id="txtDescription" layoutX="36.0" layoutY="149.0" prefHeight="203.0" prefWidth="176.0" promptText="Description" />
+      <Label layoutX="265.0" layoutY="14.0" prefHeight="32.0" prefWidth="163.0" text="BOOK CATERGORIES" textAlignment="CENTER" textFill="#2da0a8" textOverrun="WORD_ELLIPSIS">
          <font>
-            <Font size="31.0" />
+            <Font size="16.0" />
          </font>
       </Label>
-      <TableView fx:id="tblCatergories" layoutX="241.0" layoutY="93.0" prefHeight="262.0" prefWidth="439.0">
+      <TableView fx:id="tblCatergories" layoutX="235.0" layoutY="61.0" prefHeight="294.0" prefWidth="445.0">
         <columns>
           <TableColumn fx:id="colId" prefWidth="67.0" text="Cat_ID" />
           <TableColumn fx:id="colName" prefWidth="78.0" text="Cat_Name" />
-            <TableColumn fx:id="colDecription" prefWidth="198.0" text="Description" />
-            <TableColumn fx:id="coldelete" prefWidth="95.0" text="Delete" />
+            <TableColumn fx:id="colDecription" prefWidth="212.0" text="Description" />
+            <TableColumn fx:id="coldelete" prefWidth="87.0" text="Delete" />
         </columns>
       </TableView>
-      <JFXButton layoutX="139.0" layoutY="259.0" onAction="#btnAddOnAction" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #44ceda;" text="Add" />
+      <JFXButton layoutX="130.0" layoutY="361.0" onAction="#btnAddOnAction" prefHeight="25.0" prefWidth="81.0" style="-fx-background-color: #44ceda;" text="Add" />
       <JFXButton layoutX="582.0" layoutY="361.0" onAction="#btnReloadOnAction" prefHeight="25.0" prefWidth="98.0" style="-fx-background-color: #44ceda;" text="Load Table" />
-      <JFXButton layoutX="53.0" layoutY="259.0" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #44ceda;" text="Update" />
+      <JFXButton layoutX="37.0" layoutY="361.0" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: #44ceda;" text="Update" />
+      <Label layoutX="36.0" layoutY="91.0" text="Catergory Name">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Label>
+      <Label layoutX="36.0" layoutY="134.0" text="Description">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
