@@ -14,13 +14,13 @@ import tm.CatergoryTm;
 
 public class CatergoryRepository {
 
-    public int addBookCatergory(Catergory catergory) throws ClassNotFoundException, SQLException {
+    public boolean addBookCatergory(Catergory catergory) throws ClassNotFoundException, SQLException {
         PreparedStatement statment = DbConnection.getInstance().getConnection().prepareStatement("INSERT INTO Book_Catergories VALUES(?,?,?)");
         statment.setString(1, catergory.getCatergoryId());
         statment.setString(2, catergory.getCatergoryName());
         statment.setString(3, catergory.getDescription());
 
-         return (statment.executeUpdate());
+         return (statment.executeUpdate()>0 ? true:false);
     }
 
     public ArrayList<Catergory> loadTable() throws SQLException, ClassNotFoundException {

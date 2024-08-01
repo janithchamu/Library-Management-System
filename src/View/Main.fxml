@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="333.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserController">
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="333.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.userController.UserController">
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="31.0" prefHeight="39.0" prefWidth="333.0" text="IJSE Library" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
          <font>
@@ -20,5 +20,7 @@
       <JFXButton id="btnSignIn" layoutX="246.0" layoutY="204.0" onAction="#btnSignInOnAction" prefHeight="25.0" prefWidth="84.0" style="-fx-background-color: #cfcd90;" text="Sign In" />
       <Label layoutX="158.0" layoutY="255.0" prefHeight="17.0" prefWidth="66.0" text="New User ?" />
       <JFXButton id="btnSignUp" layoutX="245.0" layoutY="251.0" onAction="#btnSignUpOnAction" prefHeight="25.0" prefWidth="84.0" style="-fx-background-color: #cfcd90;" text="SignUp Here" />
+      <Label fx:id="lblError" layoutX="181.0" layoutY="111.0" prefHeight="17.0" prefWidth="149.0" />
+      <Label fx:id="lblError2" layoutX="181.0" layoutY="154.0" prefHeight="17.0" prefWidth="149.0" />
    </children>
 </AnchorPane>

@@ -1,4 +1,4 @@
-package controller;
+package controller.userController;
 
 import java.io.IOException;
 import java.net.URL;
@@ -18,8 +18,15 @@ public class UserSignin {
     private AnchorPane root;
     
     @FXML
-    void btnManageBarrowingOnAction(ActionEvent event) {
-        System.out.println("click on manage barrowing");
+    void btnManageBarrowingOnAction(ActionEvent event) throws IOException {
+        URL source2 = getClass().getResource("/View/MainBarrowingBooks.fxml");
+        Parent root = FXMLLoader.load(source2);
+        //Parent root = FXMLLoader.load(this.getClass().getResource("/View/signUp.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+ 
+        stage.setTitle("New Transaction");
+        stage.show();
     }
 
     @FXML

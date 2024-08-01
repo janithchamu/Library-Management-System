@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="613.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WelcomeController">
+   <children>
+      <Label layoutX="194.0" layoutY="29.0" prefHeight="29.0" prefWidth="212.0" text="Welcome To IJSE Library" textAlignment="CENTER" textFill="#1c6b8a" textOverrun="WORD_ELLIPSIS">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="txtMain" layoutX="41.0" layoutY="80.0" opacity="0.91" prefHeight="45.0" prefWidth="519.0" text="The IJSE Library Main window centralizes all library management tasks with a user-friendly &#10;interface, enabling you to:">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <effect>
+            <DropShadow />
+         </effect>
+      </TextArea>
+      <TextArea fx:id="txtCatergory" layoutX="40.0" layoutY="182.0" opacity="0.91" prefHeight="29.0" prefWidth="390.0" text="Manage Book Categories: Add, edit, view, and delete book categories.">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <effect>
+            <DropShadow />
+         </effect>
+      </TextArea>
+      <TextArea fx:id="txtBooks" layoutX="41.0" layoutY="265.0" opacity="0.91" prefHeight="38.0" prefWidth="437.0" text="Manage Books: Perform full CRUD operations to maintain the book inventory.">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <effect>
+            <DropShadow />
+         </effect>
+      </TextArea>
+      <TextArea fx:id="txtMembers" layoutX="39.0" layoutY="356.0" opacity="0.91" prefHeight="38.0" prefWidth="519.0" text="Manage Members: Update member records with create, read, update, and delete functionality">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <effect>
+            <DropShadow />
+         </effect>
+      </TextArea>
+      <TextArea fx:id="txtBarrowing" layoutX="40.0" layoutY="447.0" opacity="0.91" prefHeight="19.0" prefWidth="428.0" text="Manage Borrowing Transactions: Track and manage the borrowing of books.">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <effect>
+            <DropShadow />
+         </effect>
+      </TextArea>
+      <TextArea fx:id="txtRetain" layoutX="40.0" layoutY="531.0" opacity="0.91" prefHeight="45.0" prefWidth="545.0" text="Process Returns and Apply Fines: Handle book returns and apply fines for late returns automatically.&#10;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <effect>
+            <DropShadow />
+         </effect>
+      </TextArea>
+      <Label contentDisplay="BOTTOM" layoutX="40.0" layoutY="151.0" prefHeight="17.0" prefWidth="150.0" style="-fx-background-color: #d9e45f;" text="Manage Book Catergories :" textFill="#282825" textOverrun="LEADING_ELLIPSIS">
+         <cursor>
+            <Cursor fx:constant="CLOSED_HAND" />
+         </cursor>
+      </Label>
+      <Label contentDisplay="BOTTOM" layoutX="43.0" layoutY="236.0" prefHeight="17.0" prefWidth="90.0" style="-fx-background-color: #d9e45f;" text="Manage Books :" textFill="#282825" textOverrun="LEADING_ELLIPSIS">
+         <cursor>
+            <Cursor fx:constant="CLOSED_HAND" />
+         </cursor>
+      </Label>
+      <Label contentDisplay="BOTTOM" layoutX="40.0" layoutY="327.0" prefHeight="17.0" prefWidth="107.0" style="-fx-background-color: #d9e45f;" text="Manage Members :" textFill="#282825" textOverrun="LEADING_ELLIPSIS">
+         <cursor>
+            <Cursor fx:constant="CLOSED_HAND" />
+         </cursor>
+      </Label>
+      <Label contentDisplay="BOTTOM" layoutX="40.0" layoutY="420.0" prefHeight="17.0" prefWidth="178.0" style="-fx-background-color: #d9e45f;" text="Manage Borrowing Transactions :" textFill="#282825" textOverrun="LEADING_ELLIPSIS">
+         <cursor>
+            <Cursor fx:constant="CLOSED_HAND" />
+         </cursor>
+      </Label>
+      <Label contentDisplay="BOTTOM" layoutX="40.0" layoutY="499.0" prefHeight="17.0" prefWidth="178.0" style="-fx-background-color: #d9e45f;" text="Process Returns and Apply Fines :" textFill="#282825" textOverrun="LEADING_ELLIPSIS">
+         <cursor>
+            <Cursor fx:constant="CLOSED_HAND" />
+         </cursor>
+      </Label>
+      <JFXButton layoutX="202.0" layoutY="147.0" onAction="#btnCatergoriesOnAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #5bdad6;" text="&gt;&gt;&gt;&gt;" textFill="#141414" />
+      <JFXButton layoutX="146.0" layoutY="231.0" onAction="#btnBooksOnAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #5bdad6;" text="&gt;&gt;&gt;&gt;" textFill="#141414" />
+      <JFXButton layoutX="156.0" layoutY="323.0" onAction="#btnMembersOnAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #5bdad6;" text="&gt;&gt;&gt;&gt;" textFill="#141414" />
+      <JFXButton layoutX="225.0" layoutY="414.0" onAction="#btnBarrowingOnAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #5bdad6;" text="&gt;&gt;&gt;&gt;" textFill="#141414" />
+      <JFXButton layoutX="226.0" layoutY="493.0" onAction="#btnRetaiinOnAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #5bdad6;" text="&gt;&gt;&gt;&gt;" textFill="#141414" />
+   </children>
+</AnchorPane>

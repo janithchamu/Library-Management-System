@@ -1,7 +1,8 @@
-package controller;
+package controller.bookController;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import dto.BookDto;
 import dto.BookDtoRes;
@@ -80,23 +81,46 @@ public class BooksController {
         colDelete.setCellValueFactory(new PropertyValueFactory<>("btnDelete"));
         getAllRecords();
     }
+    public boolean checkNullTextFields(List<TextField> list){
+
+        for(TextField textField : list){
+            if(textField.getText() == null || textField.getText().trim().isEmpty()){
+                return false;
+            }
+        }
+        return true;
+    }
 
     @FXML
     void btnAddOnAction(ActionEvent event) throws ClassNotFoundException, SQLException {
-         BookDto bookDto = new BookDto(
-            txtBookId.getText(),
-            txtBookName.getText(),
-            txtDescription.getText(),
-            txtAuthor.getText(),
-            txtCatergory.getText()
-         );
-        boolean isAdd =  bookService.addBook(bookDto);
-        if(isAdd){
-           new Alert(Alert.AlertType.CONFIRMATION,"Added Succesfully !").show();
-           clearTexts();
-        }else{
-            new Alert(Alert.AlertType.ERROR,"Fail to Add !").show();
+        List<TextField> list = new ArrayList<>();
+        list.add(txtBookId);
+        list.add(txtBookName);
+        list.add(txtAuthor);
+        list.add(txtCatergory);
+
+
+        if(checkNullTextFields(list) && txtDescription.getText() != null && !txtDescription.getText().trim().isEmpty()){
+            BookDto bookDto = new BookDto(
+                txtBookId.getText(),
+                txtBookName.getText(),
+                txtDescription.getText(),
+                txtAuthor.getText(),
+                txtCatergory.getText()
+             );
+            boolean isAdd =  bookService.addBook(bookDto);
+            if(isAdd){
+               new Alert(Alert.AlertType.CONFIRMATION,"Added Succesfully !").show();
+               clearTexts();
+            }else{
+                new Alert(Alert.AlertType.ERROR,"Fail to Add !").show();
+            }
         }
+        else{
+            new Alert(Alert.AlertType.ERROR,"Please Complete All records").show();
+        }
+
+
     }
 
     @FXML
